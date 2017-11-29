@@ -114,8 +114,13 @@ var addTrack = function (name, artist, album) {
 
 // adds a playlist to the library
 
-var addPlaylist = function (name) {
-
+var addPlaylist = function(name) {
+  var playlistId = uid();
+  library.playlists[playlistId] = {
+    id: playlistId,
+    name: name,
+    tracks: []
+  }
 }
 
 
