@@ -87,5 +87,5 @@ function length(obj) {
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
 
 var printSearchResults = function(query) {
-
+  library.tracks.name.search()
 }

@@ -27,6 +27,8 @@ function whatToDoForLunch(hungry, availableTime) {
   }
 }
 
+if ;
+
 /*
  * This is some test runner code that's simply calling our whatToDoForLunch function
  * defined above to verify we're making the right decisions. Do not modify it!
