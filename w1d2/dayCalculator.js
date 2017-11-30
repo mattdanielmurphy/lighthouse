@@ -14,21 +14,20 @@ function calculateDayInYear(date) {
     console.log("Invalid date");
   }
 
-  function validMonth(month) {
+  function validMonth (month) {
     // first error found: Dec not included if < 12.
     return month && month >= 1 && month <= 12;
   }
 
-  function validDay(month, day) {
+  function validDay (month, day) {
     // second error found: day returns as invalid because < 31 is not 31, which is valid
     // removed [month - 1]
-    return day && day >= 1 && day <= daysInMonth[month];
+    return day && day >= 1 && day <= daysInMonth[month - 1];
   }
 
-  function calculateDayNumber(month, day) {
+  function calculateDayNumber (month, day) {
     // third error found: giving wrong day number
     var dayOfYear = day;
-    if (isLeapYear(year)) console.log('hey')
     for (var i = 1; i < month; i++) {
       dayOfYear += daysInMonth[i - 1];
     }
@@ -36,21 +35,25 @@ function calculateDayInYear(date) {
     return dayOfYear;
   }
 
-  function daysInFeb(year) {
-    return 28;
+  function daysInFeb (year) {
+    if (isLeapYear(year)) {
+      return 29;
+    } else {
+      return 28;
+    }
   }
 
-  function isLeapYear(year) {
-    return isMultiple(year, 400) || !isMultiple(year, 100) && isMultiple(year, 4);
+  function isLeapYear (year) {
+    return isMultiple (year, 400) || !isMultiple (year, 100) && isMultiple (year, 4);
   }
 }
 
-function isMultiple(numerator, denominator) {
+function isMultiple (numerator, denominator) {
   return numerator % denominator === 0;
 }
 
 // var date = process.argv[2];
-var date = '2000/3/2';
+var date = '1900/3/2';
 
 if (!date) {
   console.log("Please provide a date in the format YYYY/MM/DD");
