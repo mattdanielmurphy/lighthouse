@@ -20,16 +20,12 @@ function sortNames(array) {
 			};
 			if(a.name > b.name) {
 				return 1;
-			};
+			} else {
+				return b.age - a.age;
+			}
 			return 0;
 		});
 	}
-	for(n in array) {
-		var isOlder = array.sort(function(a, b) {
-			return b.age - a.age;
-		});
-	};
-	console.log('older:', isOlder);
 	return array;
 }
 
