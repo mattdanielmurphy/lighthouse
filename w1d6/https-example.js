@@ -7,7 +7,10 @@ var options = {
 
 var callback = function(response) {
   console.log('In response handler callback!');
-  console.log('response:', response);
+  response.on('data', function(chunk) {
+    console.log('[-- CHUNK OF LENGTH', chunk.length, '--]');
+    console.log(chunk.toString());
+  })
 }
 
 console.log('I am about to make the request!');
