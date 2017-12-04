@@ -10,14 +10,14 @@ function getAndPrintHTMLChunks () {
 
 	https.get(requestOptions, function (response) {
 		response.setEncoding('utf8');
+		var allData = [];
 		response.on('data', function (data) {
-			var allData = [];
 			allData.push(data);
 		});
 
 		response.on('end', function(data) {
 			console.log('Response stream complete.');
-			console.log(data.join('\n'));
+			console.log(allData.join('\n'));
 		});
 	});
 }
